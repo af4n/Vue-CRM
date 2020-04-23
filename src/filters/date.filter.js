@@ -2,8 +2,6 @@ export default function dateFilter (value, format = 'date') {
   console.log(value)
   const options = {}
 
-  // Intl.DateTimeFormat https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
-
   if (format.includes('date')) {
     options.day = '2-digit'
     options.month = 'long'
