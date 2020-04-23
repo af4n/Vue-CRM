@@ -108,12 +108,12 @@ export default {
         this.$v.$touch()
         return
       }
+      // eslint-disable-next-line no-unused-vars
       const formData = {
         email: this.email,
         password: this.password,
         name: this.name
       }
-      console.log(formData)
       this.$router.push('/')
     }
   }
