@@ -3,8 +3,10 @@ import Vuelidate from 'vuelidate' // Vuelidate https://vuelidate.js.org/
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import dateFilter from './filters/date.filter' // Intl.DateTimeFormat https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
-import mesagePlagin from './utils/message.plagin'
+import currencyFilter from '@/filters/currency.filter' // Intl.NumberFormat https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+import dateFilter from '@/filters/date.filter' // Intl.DateTimeFormat https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+import mesagePlagin from '@/utils/message.plagin'
+import Loader from '@/components/app/Loader'
 import './registerServiceWorker'
 import 'materialize-css/dist/js/materialize' // Materialize https://materializecss.com/
 
@@ -16,7 +18,9 @@ Vue.config.productionTip = false
 
 Vue.use(mesagePlagin)
 Vue.use(Vuelidate)
+Vue.filter('currency', currencyFilter)
 Vue.filter('date', dateFilter)
+Vue.component('Loader', Loader)
 
 firebase.initializeApp({
   apiKey: 'AIzaSyBlV7J8E3J69MwnTihaYOkmXUBnElooaLY',
