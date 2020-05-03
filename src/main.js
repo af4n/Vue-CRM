@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuelidate from 'vuelidate' // Vuelidate https://vuelidate.js.org/
 import Paginate from 'vuejs-paginate'
+import VueMeta from 'vue-meta'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -8,6 +9,7 @@ import currencyFilter from '@/filters/currency.filter' // Intl.NumberFormat http
 import dateFilter from '@/filters/date.filter' // Intl.DateTimeFormat https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
 import localizeFilter from '@/filters/localize.filter'
 import mesagePlagin from '@/utils/message.plagin'
+import titlePlagin from '@/utils/title.plagin'
 import tooltipDirective from '@/directives/tooltip.directive'
 import Loader from '@/components/app/Loader'
 import './registerServiceWorker'
@@ -20,7 +22,9 @@ import 'firebase/database'
 Vue.config.productionTip = false
 
 Vue.use(mesagePlagin)
+Vue.use(titlePlagin)
 Vue.use(Vuelidate)
+Vue.use(VueMeta)
 Vue.filter('currency', currencyFilter)
 Vue.filter('date', dateFilter)
 Vue.filter('localize', localizeFilter)
