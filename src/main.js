@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import currencyFilter from '@/filters/currency.filter' // Intl.NumberFormat https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
 import dateFilter from '@/filters/date.filter' // Intl.DateTimeFormat https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+import localizeFilter from '@/filters/localize.filter'
 import mesagePlagin from '@/utils/message.plagin'
 import tooltipDirective from '@/directives/tooltip.directive'
 import Loader from '@/components/app/Loader'
@@ -22,6 +23,7 @@ Vue.use(mesagePlagin)
 Vue.use(Vuelidate)
 Vue.filter('currency', currencyFilter)
 Vue.filter('date', dateFilter)
+Vue.filter('localize', localizeFilter)
 Vue.directive('tooltip', tooltipDirective)
 Vue.component('Loader', Loader)
 Vue.component('Paginate', Paginate)

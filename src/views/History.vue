@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>История записей</h3>
+      <h3>{{'History_Title'|localize}}</h3>
     </div>
 
     <div class="history-chart">
@@ -11,8 +11,8 @@
     <Loader v-if="loading" />
 
     <p class="center" v-else-if="!records.length">
-      Записей пока нет.
-      <router-link to="/record">Добавить запись</router-link>
+      {{'NoRecords'|localize}}.
+      <router-link to="/record">{{'AddFirst'|localize}}</router-link>
     </p>
 
     <section v-else>
@@ -23,8 +23,8 @@
         v-model="page"
         :page-count="pageCount"
         :click-handler="pageChangeHandler"
-        :prev-text="'Назад'"
-        :next-text="'Вперед'"
+        :prev-text="'Back' | localize"
+        :next-text="'Forward' | localize"
         :container-class="'pagination'"
         :page-class="'waves-effect'"
       />
@@ -37,6 +37,7 @@
 import paginationMixin from '@/mixins/pagination.mixin'
 import HistoryTable from '@/components/HistoryTable'
 import { Pie } from 'vue-chartjs'
+import localizeFilter from '@/filters/localize.filter'
 
 export default {
   name: 'history',
@@ -61,7 +62,7 @@ export default {
           ...record,
           categoryName: categories.find(c => c.id === record.categoryId).title,
           typeClass: record.type === 'income' ? 'green' : 'red',
-          typeText: record.type === 'income' ? 'Доход' : 'Расход'
+          typeText: record.type === 'income' ? localizeFilter('Income') : localizeFilter('Outcome')
         }
       }))
       this.renderChart({
